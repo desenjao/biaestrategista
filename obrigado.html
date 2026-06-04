@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Análise completa do Índice de Maturidade Digital da sua empresa - 5 Pilares Estratégicos">
+    <title>Diagnóstico Digital | Análise de Maturidade - 5 Pilares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-page: #F8F9FC;
+            --white-card: #FFFFFF;
+            --rose-soft: #FCE4EC;
+            --rose-primary: #C44569;
+            --rose-dark: #A6344F;
+            --rose-highlight: #E57399;
+            --text-dark: #1A1A2E;
+            --text-muted: #6C757D;
+            --border-light: #E9ECEF;
+            --success: #2A9D8F;
+            --warning: #F4A261;
+            --danger: #E76F51;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-page);
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 32px 24px 80px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #C44569 0%, #A6344F 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon i {
+            font-size: 24px;
+            color: white;
+        }
+
+        .logo-text h1 {
+            font-size: 1.2rem;
+            color: var(--rose-primary);
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .back-link {
+            color: var(--rose-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.25s;
+        }
+
+        .back-link:hover {
+            color: var(--rose-dark);
+        }
+
+        .result-box {
+            background: white;
+            border-radius: 32px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .result-hero {
+            background: linear-gradient(135deg, var(--rose-primary) 0%, var(--rose-dark) 100%);
+            padding: 48px 40px;
+            color: white;
+            text-align: center;
+        }
+
+        .greeting {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .greeting i {
+            margin-right: 8px;
+        }
+
+        .result-hero p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .score-section {
+            padding: 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .score-circle-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 24px;
+        }
+
+        .level-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            background: var(--rose-soft);
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--rose-primary);
+            margin-bottom: 16px;
+        }
+
+        .level-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .level-description {
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+
+        .radar-section {
+            padding: 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+            background: #FCFCFD;
+        }
+
+        .radar-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .radar-subtitle {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+        }
+
+        .chart-wrapper {
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .pilares-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .pilar-card {
+            background: white;
+            border-radius: 20px;
+            padding: 16px;
+            min-width: 140px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .pilar-card h4 {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .pilar-score {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .pilar-bar {
+            width: 100%;
+            height: 4px;
+            background: var(--border-light);
+            border-radius: 4px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .pilar-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .gargalos-section {
+            padding: 40px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .section-header i {
+            font-size: 1.5rem;
+            color: var(--danger);
+        }
+
+        .section-header h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .gargalos-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .gargalo-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: #FFF5F7;
+            border-radius: 16px;
+            border-left: 4px solid var(--danger);
+        }
+
+        .gargalo-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--danger);
+            font-size: 1.2rem;
+        }
+
+        .gargalo-content {
+            flex: 1;
+        }
+
+        .gargalo-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .gargalo-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .gargalo-score {
+            font-weight: 700;
+            color: var(--danger);
+        }
+
+        .detalhes-section {
+            padding: 40px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .btn-detalhes {
+            width: 100%;
+            padding: 16px;
+            background: transparent;
+            border: 1.5px solid var(--rose-primary);
+            border-radius: 60px;
+            color: var(--rose-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-detalhes:hover {
+            background: var(--rose-soft);
+            border-color: var(--rose-dark);
+        }
+
+        .detalhes-content {
+            display: none;
+            margin-top: 24px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .detalhes-content.show {
+            display: block;
+        }
+
+        .pergunta-detalhe {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .pergunta-texto {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .pergunta-resposta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .cta-section {
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+            color: white;
+        }
+
+        .cta-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            opacity: 0.8;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-refazer {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s;
+            margin-left: 12px;
+        }
+
+        .btn-refazer:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 32px 20px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-light);
+            margin-top: 40px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 16px 60px;
+            }
+            .result-hero {
+                padding: 32px 24px;
+            }
+            .greeting {
+                font-size: 1.3rem;
+            }
+            .score-section, .radar-section, .gargalos-section, .detalhes-section, .cta-section {
+                padding: 32px 24px;
+            }
+            .level-title {
+                font-size: 1.3rem;
+            }
+            .pilares-grid {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="app">
+    <div class="header">
+        <div class="logo-area">
+            <div class="logo-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="logo-text">
+                <h1>Diagnóstico Digital</h1>
+                <p>Índice de Maturidade Digital - 5 Pilares</p>
+            </div>
+        </div>
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Voltar para home
+        </a>
+    </div>
+
+    <div id="resultContainer" class="result-box animate-in"></div>
+
+    <div class="footer">
+        <p>© 2026 · Diagnóstico Digital · Metodologia dos 5 Pilares Estratégicos</p>
+        <p style="margin-top: 8px;">Análise baseada em Aquisição, Oferta, Vendas, Dados e Conteúdo</p>
+    </div>
+</div>
+
+<script>
+    // Recuperar dados do localStorage
+    const userData = JSON.parse(localStorage.getItem('diagnostico_user_data') || '{}');
+    const answers = JSON.parse(localStorage.getItem('diagnostico_answers') || '[]');
+    const questionsData = JSON.parse(localStorage.getItem('diagnostico_questions') || '[]');
+
+    // Se não houver dados, redirecionar
+    if (!userData.name || answers.length === 0) {
+        window.location.href = 'maturidade.html';
+    }
+
+    // ============================================
+    // MAPEAMENTO DAS 20 PERGUNTAS NOS 5 PILARES
+    // ============================================
+    // Índices das perguntas (0 a 19) e seus respectivos pilares
+    const eixos = {
+        aquisicao: {
+            indices: [0, 15],  // Perguntas: 1 e 16 (fontes de clientes, tráfego pago)
+            nome: 'Aquisição',
+            icone: 'fa-funnel-dollar',
+            descricao: 'Capacidade de atrair novos leads de forma consistente e previsível.'
+        },
+        oferta: {
+            indices: [1, 4],   // Perguntas: 2 e 5 (oferta USP, clareza)
+            nome: 'Oferta',
+            icone: 'fa-gem',
+            descricao: 'Clareza, atratividade e diferenciação da sua proposta de valor.'
+        },
+        vendas: {
+            indices: [2, 5, 18], // Perguntas: 3, 6, 19 (processo comercial, objeções, qualificação)
+            nome: 'Vendas',
+            icone: 'fa-handshake',
+            descricao: 'Estrutura e eficiência do seu funil comercial e processo de fechamento.'
+        },
+        dados: {
+            indices: [3, 7, 19], // Perguntas: 4, 8, 20 (CRM, métricas, analytics)
+            nome: 'Dados',
+            icone: 'fa-chart-line',
+            descricao: 'Uso de informações e métricas para decisões estratégicas.'
+        },
+        conteudo: {
+            indices: [8, 11, 12], // Perguntas: 9, 12, 13 (automação conteúdo, produção, captura)
+            nome: 'Conteúdo',
+            icone: 'fa-newspaper',
+            descricao: 'Produção de material relevante e estratégias de atração e nutrição.'
+        }
+    };
+
+    // ============================================
+    // FUNÇÃO PARA CALCULAR MATURIDADE POR PILAR
+    // ============================================
+    function calcularMaturidadePorPilar() {
+        let resultados = {};
+        
+        for (let pilar in eixos) {
+            let soma = 0;
+            let indices = eixos[pilar].indices;
+            
+            indices.forEach(qIdx => {
+                if (answers[qIdx] !== undefined && questionsData[qIdx]) {
+                    const score = questionsData[qIdx].scores[answers[qIdx]];
+                    soma += score;
+                }
+            });
+            
+            // Máximo possível: número de perguntas do pilar × 5
+            const maxPossivel = indices.length * 5;
+            const percentual = maxPossivel > 0 ? (soma / maxPossivel) * 100 : 0;
+            resultados[pilar] = Math.round(percentual);
+        }
+        
+        return resultados;
+    }
+
+    // ============================================
+    // FUNÇÃO PARA CALCULAR PONTUAÇÃO GERAL
+    // ============================================
+    function calcularPontuacaoGeral() {
+        let total = 0;
+        let maxTotal = 0;
+        
+        for (let pilar in eixos) {
+            let indices = eixos[pilar].indices;
+            maxTotal += indices.length * 5;
+            
+            indices.forEach(qIdx => {
+                if (answers[qIdx] !== undefined && questionsData[qIdx]) {
+                    total += questionsData[qIdx].scores[answers[qIdx]];
+                }
+            });
+        }
+        
+        return Math.round((total / maxTotal) * 100);
+    }
+
+    // ============================================
+    // FUNÇÃO PARA IDENTIFICAR OS 3 PIORES PILARES
+    // ============================================
+    function identificarGargalos(resultados) {
+        const pilaresArray = Object.entries(resultados).map(([key, value]) => ({
+            key: key,
+            nome: eixos[key].nome,
+            icone: eixos[key].icone,
+            score: value
+        }));
+        
+        pilaresArray.sort((a, b) => a.score - b.score);
+        return pilaresArray.slice(0, 3);
+    }
+
+    // ============================================
+    // FUNÇÃO PARA GERAR RECOMENDAÇÕES POR PILAR
+    // ============================================
+    function getRecomendacaoPorPilar(pilarKey, score) {
+        const recomendacoes = {
+            aquisicao: {
+                baixo: 'Invista em um funil de aquisição com tráfego pago ou orgânico estruturado. Defina metas de captação.',
+                medio: 'Otimize suas campanhas e teste novos canais. Monitore CAC por fonte.',
+                alto: 'Excelente! Mantenha o investimento e explore canais complementares.'
+            },
+            oferta: {
+                baixo: 'Desenvolva uma proposta de valor única (USP) que resolva uma dor específica do cliente.',
+                medio: 'Refine sua comunicação e teste diferentes abordagens na sua oferta.',
+                alto: 'Sua oferta está no caminho certo! Continue testando pequenas variações.'
+            },
+            vendas: {
+                baixo: 'Estruture um processo comercial com CRM e acompanhamento sistemático de leads.',
+                medio: 'Automatize parte do processo e treine sua equipe em técnicas de closing.',
+                alto: 'Seu processo de vendas é maduro. Foque em escalabilidade e novos canais.'
+            },
+            dados: {
+                baixo: 'Implemente ferramentas de analytics e crie um dashboard com métricas essenciais.',
+                medio: 'Aprofunde a análise de dados com segmentação e testes A/B.',
+                alto: 'Você é data-driven! Use os dados para prever tendências e antecipar movimentos.'
+            },
+            conteudo: {
+                baixo: 'Crie um calendário editorial e produza conteúdo para cada etapa do funil.',
+                medio: 'Diversifique formatos (vídeo, podcast) e invista em SEO para atrair orgânico.',
+                alto: 'Seu conteúdo é referência! Explore parcerias e distribuição em novos canais.'
+            }
+        };
+        
+        if (score <= 33) return recomendacoes[pilarKey]?.baixo || 'Foque em melhorias nesta área.';
+        if (score <= 66) return recomendacoes[pilarKey]?.medio || 'Continue otimizando e testando.';
+        return recomendacoes[pilarKey]?.alto || 'Parabéns! Mantenha o nível de excelência.';
+    }
+
+    // ============================================
+    // FUNÇÃO PARA OBTER NÍVEL GLOBAL
+    // ============================================
+    function getNivelGlobal(percentage) {
+        if (percentage <= 25) {
+            return {
+                nome: '🔴 Estágio Inicial',
+                badge: 'Invisibilidade Digital',
+                descricao: 'Sua empresa ainda não possui presença digital estruturada. Você depende de indicações e métodos tradicionais para conseguir clientes.',
+                cor: '#E76F51'
+            };
+        } else if (percentage <= 50) {
+            return {
+                nome: '🟠 Estágio Reativo',
+                badge: 'Presença Digital Frágil',
+                descricao: 'Sua empresa já possui alguma presença digital, mas falta processo. Você até recebe contatos, mas não consegue escalar de forma consistente.',
+                cor: '#F4A261'
+            };
+        } else if (percentage <= 75) {
+            return {
+                nome: '🟡 Estágio Estruturado',
+                badge: 'Crescimento Organizado',
+                descricao: 'Parabéns! Sua empresa possui uma estrutura digital consistente. Você está no caminho certo para escalar seus resultados.',
+                cor: '#E9C46A'
+            };
+        } else {
+            return {
+                nome: '🟢 Estágio Estratégico',
+                badge: 'Excelência Digital',
+                descricao: 'Excelente! Sua empresa está no topo da maturidade digital. Processos maduros, métricas claras e uma máquina de vendas funcionando.',
+                cor: '#2A9D8F'
+            };
+        }
+    }
+
+    // ============================================
+    // EXECUÇÃO PRINCIPAL
+    // ============================================
+    const resultadosPilares = calcularMaturidadePorPilar();
+    const pontuacaoGeral = calcularPontuacaoGeral();
+    const nivelGlobal = getNivelGlobal(pontuacaoGeral);
+    const gargalos = identificarGargalos(resultadosPilares);
+
+    // Dados para o gráfico radar (ordem: Aquisição, Oferta, Vendas, Dados, Conteúdo)
+    const radarLabels = ['Aquisição', 'Oferta', 'Vendas', 'Dados', 'Conteúdo'];
+    const radarData = [
+        resultadosPilares.aquisicao,
+        resultadosPilares.oferta,
+        resultadosPilares.vendas,
+        resultadosPilares.dados,
+        resultadosPilares.conteudo
+    ];
+
+    // HTML dos gargalos
+    const gargalosHtml = gargalos.map(g => `
+        <div class="gargalo-item">
+            <div class="gargalo-icon">
+                <i class="fas ${g.icone}"></i>
+            </div>
+            <div class="gargalo-content">
+                <div class="gargalo-title">${g.nome}</div>
+                <div class="gargalo-desc">${getRecomendacaoPorPilar(g.key, g.score)}</div>
+            </div>
+            <div class="gargalo-score">${g.score}%</div>
+        </div>
+    `).join('');
+
+    // HTML dos cards dos pilares
+    const pilaresHtml = Object.entries(resultadosPilares).map(([key, score]) => {
+        let barColor = '#E76F51';
+        if (score >= 70) barColor = '#2A9D8F';
+        else if (score >= 40) barColor = '#F4A261';
+        
+        return `
+            <div class="pilar-card">
+                <h4>${eixos[key].nome}</h4>
+                <div class="pilar-score">${score}%</div>
+                <div class="pilar-bar">
+                    <div class="pilar-bar-fill" style="width: ${score}%; background: ${barColor};"></div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    // HTML das perguntas detalhadas
+    const perguntasDetalheHtml = questionsData.map((q, idx) => {
+        const respostaIdx = answers[idx];
+        const respostaTexto = respostaIdx !== undefined ? q.options[respostaIdx] : 'Não respondida';
+        return `
+            <div class="pergunta-detalhe">
+                <div class="pergunta-texto"><strong>${idx + 1}.</strong> ${q.text}</div>
+                <div class="pergunta-resposta">Sua resposta: ${respostaTexto}</div>
+            </div>
+        `;
+    }).join('');
+
+    // Renderizar
+    function render() {
+        const html = `
+            <div class="result-hero">
+                <div class="greeting">
+                    <i class="fas fa-chart-line"></i> Olá, ${userData.name}!
+                </div>
+                <p>Seu diagnóstico foi gerado com base nas suas respostas</p>
+            </div>
+
+            <div class="score-section">
+                <div class="score-circle-container">
+                    <canvas id="scoreCircle" width="180" height="180"></canvas>
+                </div>
+                <div class="level-badge">${nivelGlobal.badge}</div>
+                <div class="level-title">${nivelGlobal.nome}</div>
+                <div class="level-description">${nivelGlobal.descricao}</div>
+            </div>
+
+            <div class="radar-section">
+                <div class="radar-title">
+                    <i class="fas fa-chart-pie" style="color: var(--rose-primary);"></i>
+                    Maturidade por Pilar Estratégico
+                </div>
+                <div class="radar-subtitle">Os 5 pilares do sucesso digital</div>
+                <div class="chart-wrapper">
+                    <canvas id="radarChart" width="400" height="400"></canvas>
+                </div>
+                <div class="pilares-grid">
+                    ${pilaresHtml}
+                </div>
+            </div>
+
+            <div class="gargalos-section">
+                <div class="section-header">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Seus 3 Pilares com Maior Urgência</h3>
+                </div>
+                <div class="gargalos-list">
+                    ${gargalosHtml}
+                </div>
+            </div>
+
+            <div class="detalhes-section">
+                <button class="btn-detalhes" id="toggleDetalhesBtn">
+                    <i class="fas fa-clipboard-list"></i> Ver respostas detalhadas
+                    <i class="fas fa-chevron-down" id="chevronIcon"></i>
+                </button>
+                <div id="detalhesContent" class="detalhes-content">
+                    ${perguntasDetalheHtml}
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3>🚀 Quer acelerar seus resultados?</h3>
+                <p>Converse com um especialista e descubra como implementar um plano de ação personalizado para os seus 5 pilares.</p>
+                <button class="btn-whatsapp" id="whatsappBtn">
+                    <i class="fab fa-whatsapp"></i> Falar com Consultor
+                </button>
+                <button class="btn-refazer" id="refazerBtn">
+                    <i class="fas fa-redo"></i> Refazer diagnóstico
+                </button>
+            </div>
+        `;
+
+        document.getElementById('resultContainer').innerHTML = html;
+
+        // Gráfico de círculo (pontuação geral)
+        const circleCtx = document.getElementById('scoreCircle')?.getContext('2d');
+        if (circleCtx) {
+            new Chart(circleCtx, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [pontuacaoGeral, 100 - pontuacaoGeral],
+                        backgroundColor: [nivelGlobal.cor, '#E9ECEF'],
+                        borderWidth: 0,
+                        cutout: '70%'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: { legend: { display: false }, tooltip: { enabled: false } }
+                },
+                plugins: [{
+                    id: 'centerText',
+                    afterDraw(chart) {
+                        const { ctx, width, height } = chart;
+                        ctx.save();
+                        ctx.font = 'bold 26px "Inter"';
+                        ctx.fillStyle = '#1A1A2E';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText(`${pontuacaoGeral}%`, width / 2, height / 2);
+                        ctx.font = '11px "Inter"';
+                        ctx.fillStyle = '#6C757D';
+                        ctx.fillText('IMD', width / 2, height / 2 + 28);
+                        ctx.restore();
+                    }
+                }]
+            });
+        }
+
+        // Gráfico Radar (com fill sólido e visual profissional)
+        const radarCtx = document.getElementById('radarChart')?.getContext('2d');
+        if (radarCtx) {
+            new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: radarLabels,
+                    datasets: [{
+                        label: 'Sua Maturidade Digital',
+                        data: radarData,
+                        backgroundColor: 'rgba(196, 69, 105, 0.25)',
+                        borderColor: nivelGlobal.cor,
+                        borderWidth: 2,
+                        pointBackgroundColor: nivelGlobal.cor,
+                        pointBorderColor: '#fff',
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        r: {
+                            min: 0,
+                            max: 100,
+                            ticks: { 
+                                display: false,
+                                stepSize: 20
+                            },
+                            grid: { 
+                                color: 'rgba(0, 0, 0, 0.08)',
+                                circular: true
+                            },
+                            pointLabels: { 
+                                font: { size: 12, weight: '600' },
+                                color: '#4A2E38'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { 
+                            callbacks: { 
+                                label: (ctx) => `${ctx.label}: ${ctx.raw}%` 
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Toggle detalhes
+        const toggleBtn = document.getElementById('toggleDetalhesBtn');
+        const detalhesContent = document.getElementById('detalhesContent');
+        const chevronIcon = document.getElementById('chevronIcon');
+
+        toggleBtn?.addEventListener('click', () => {
+            detalhesContent.classList.toggle('show');
+            chevronIcon.classList.toggle('fa-chevron-down');
+            chevronIcon.classList.toggle('fa-chevron-up');
+        });
+
+        // Botão WhatsApp
+        document.getElementById('whatsappBtn')?.addEventListener('click', () => {
+            const message = encodeURIComponent(
+                `Olá! Fiz o diagnóstico de maturidade digital e obtive ${pontuacaoGeral}% de pontuação (${nivelGlobal.nome}). Minhas maiores necessidades são em: ${gargalos.map(g => g.nome).join(', ')}. Gostaria de saber mais sobre como melhorar minha presença digital.`
+            );
+            window.open(`https://wa.me/5511999999999?text=${message}`, '_blank');
+        });
+
+        // Botão Refazer
+        document.getElementById('refazerBtn')?.addEventListener('click', () => {
+            localStorage.removeItem('diagnostico_user_data');
+            localStorage.removeItem('diagnostico_answers');
+            localStorage.removeItem('diagnostico_questions');
+            window.location.href = 'maturidade.html';
+        });
+    }
+
+    render();
+</script>
+</body>
+</html>
