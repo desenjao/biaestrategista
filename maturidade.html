@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <meta name="description" content="Responda às perguntas e descubra o Índice de Maturidade Digital da sua empresa.">
-    <title>Diagnóstico Digital | Responda às Perguntas</title>
+    <meta name="description" content="Descubra por que seu negócio ainda não é lembrado pelos clientes. Diagnóstico gratuito de comunicação e presença digital.">
+    <title>Diagnóstico Digital | Por que seu negócio não é lembrado?</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
@@ -17,20 +17,20 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --bg-page: #F5F7FA;
-            --bg-card: #FFFFFF;
-            --orange-primary: #F59E0B;
-            --orange-dark: #D97706;
-            --orange-light: #FBBF24;
-            --orange-soft: #FEF3C7;
-            --text-dark: #1A1A2E;
-            --text-muted: #6C757D;
-            --border-light: #E9ECEF;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
+       :root {
+    --bg-page: #FFF4E3;
+    --bg-card: #FFFFFF;
+    --orange-primary: #B3674D;
+    --orange-dark: #8F6144;
+    --orange-light: #C9935E;
+    --orange-soft: rgba(179,103,77,0.1);
+    --text-dark: #5E402D;
+    --text-muted: #8B7355;
+    --border-light: #E8DDD0;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
 
         body {
             font-family: 'Inter', sans-serif;
@@ -140,7 +140,7 @@
         }
 
         .question-text {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             margin-bottom: 32px;
             color: var(--text-dark);
             line-height: 1.3;
@@ -157,10 +157,10 @@
             background: var(--bg-page);
             border: 1.5px solid var(--border-light);
             border-radius: 60px;
-            padding: 16px 24px;
+            padding: 14px 24px;
             cursor: pointer;
             transition: all 0.25s;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-dark);
             display: flex;
             align-items: center;
@@ -169,7 +169,7 @@
 
         .option-item i {
             width: 28px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--orange-primary);
             transition: all 0.2s;
         }
@@ -294,7 +294,6 @@
             box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
         }
 
-        /* NOVA ANIMAÇÃO - FLUXO DE EVOLUÇÃO (JORNADA) */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -464,62 +463,46 @@
                 padding: 28px 20px;
             }
             .question-text {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             .option-item {
                 padding: 12px 18px;
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- NOVA ANIMAÇÃO - FLUXO DE EVOLUÇÃO -->
 <div id="loadingOverlay" class="loading-overlay">
     <div class="loading-content">
         <div class="jornada-container">
             <div class="jornada-titulo">
-                <i class="fa-solid fa-chart-line"></i> Evolução Digital
+                <i class="fa-solid fa-chart-line"></i> Analisando seu negócio
             </div>
             <div class="jornada-linha" id="jornadaLinha">
-                <!-- Usuário -->
                 <div class="jornada-item" id="jornadaStep1">
-                    <div class="jornada-icone">
-                        <i class="fa-solid fa-user"></i>
-                    </div>
+                    <div class="jornada-icone"><i class="fa-solid fa-user"></i></div>
                     <span class="jornada-ativo">Perfil</span>
                 </div>
                 <i class="fa-solid fa-arrow-right jornada-seta" id="seta1"></i>
-                <!-- Gráfico -->
                 <div class="jornada-item" id="jornadaStep2">
-                    <div class="jornada-icone">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
+                    <div class="jornada-icone"><i class="fa-solid fa-chart-line"></i></div>
                     <span class="jornada-ativo">Análise</span>
                 </div>
                 <i class="fa-solid fa-arrow-right jornada-seta" id="seta2"></i>
-                <!-- Busca -->
                 <div class="jornada-item" id="jornadaStep3">
-                    <div class="jornada-icone">
-                        <i class="fa-solid fa-search"></i>
-                    </div>
+                    <div class="jornada-icone"><i class="fa-solid fa-search"></i></div>
                     <span class="jornada-ativo">Diagnóstico</span>
                 </div>
                 <i class="fa-solid fa-arrow-right jornada-seta" id="seta3"></i>
-                <!-- Lâmpada -->
                 <div class="jornada-item" id="jornadaStep4">
-                    <div class="jornada-icone">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </div>
+                    <div class="jornada-icone"><i class="fa-solid fa-lightbulb"></i></div>
                     <span class="jornada-ativo">Recomendações</span>
                 </div>
                 <i class="fa-solid fa-arrow-right jornada-seta" id="seta4"></i>
-                <!-- PDF -->
                 <div class="jornada-item" id="jornadaStep5">
-                    <div class="jornada-icone">
-                        <i class="fa-solid fa-file-pdf"></i>
-                    </div>
+                    <div class="jornada-icone"><i class="fa-solid fa-file-pdf"></i></div>
                     <span class="jornada-ativo">Relatório</span>
                 </div>
             </div>
@@ -537,7 +520,7 @@
             <div class="logo-icon"><i class="fa-solid fa-chart-line"></i></div>
             <div class="logo-text">
                 <h1>Diagnóstico Digital</h1>
-                <p>Índice de Maturidade Digital - IMD</p>
+                <p>Por que seu negócio não é lembrado?</p>
             </div>
         </div>
         <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
@@ -556,66 +539,40 @@
 <script>
     // ÍCONES DAS PERGUNTAS (20 ícones únicos)
     const questionIcons = [
-        "fa-user-plus", "fa-gift", "fa-comments", "fa-database", "fa-chess-knight",
-        "fa-handshake", "fa-heart", "fa-chart-simple", "fa-calendar-xmark", "fa-mountain-sun",
-        "fa-display", "fa-pen-nib", "fa-fish-fins", "fa-robot", "fa-users-gear",
-        "fa-money-bill-trend-up", "fa-medal", "fa-gauge-high", "fa-filter", "fa-magnifying-glass"
+        "fa-user-group", "fa-comment-dots", "fa-pen-fancy", "fa-face-smile", "fa-star",
+        "fa-chart-line", "fa-calendar", "fa-chart-simple", "fa-video", "fa-sack-dollar",
+        "fa-lightbulb", "fa-face-frown", "fa-medal", "fa-bullhorn", "fa-clock",
+        "fa-calendar-week", "fa-person-walking", "fa-bullseye", "fa-eye", "fa-rocket"
     ];
 
-    // ÍCONES DAS OPÇÕES NIVEL A (Básico)
-    const levelAIcons = [
-        "fa-circle", "fa-arrow-down", "fa-bolt", "fa-cloud", "fa-code",
-        "fa-cube", "fa-leaf", "fa-seedling", "fa-snowflake", "fa-sun",
-        "fa-umbrella", "fa-water", "fa-wind", "fa-anchor", "fa-battery-empty",
-        "fa-book", "fa-briefcase", "fa-bug", "fa-camera", "fa-car"
-    ];
+    // ÍCONES DAS OPÇÕES
+    const levelAIcons = ["fa-circle", "fa-face-frown", "fa-thumbs-down", "fa-arrow-down", "fa-battery-empty"];
+    const levelBIcons = ["fa-circle-half-stroke", "fa-face-meh", "fa-chart-simple", "fa-arrow-right", "fa-battery-half"];
+    const levelCIcons = ["fa-circle-dot", "fa-face-smile", "fa-chart-line", "fa-arrow-up", "fa-battery-full"];
+    const levelDIcons = ["fa-circle-check", "fa-face-grin-stars", "fa-rocket", "fa-arrow-up-wide-short", "fa-crown"];
 
-    // ÍCONES DAS OPÇÕES NIVEL B (Iniciante)
-    const levelBIcons = [
-        "fa-circle-half-stroke", "fa-arrow-right", "fa-battery-half", "fa-bicycle", "fa-binoculars",
-        "fa-brain", "fa-building", "fa-calendar", "fa-circle-nodes", "fa-compass",
-        "fa-computer", "fa-copy", "fa-dice", "fa-earth-americas", "fa-envelope-open",
-        "fa-eye", "fa-folder", "fa-gamepad", "fa-gear", "fa-database"
-    ];
-
-    // ÍCONES DAS OPÇÕES NIVEL C (Intermediário)
-    const levelCIcons = [
-        "fa-circle-dot", "fa-arrow-up", "fa-battery-full", "fa-bullseye", "fa-chart-column",
-        "fa-check", "fa-circle-check", "fa-clock", "fa-cloud-arrow-up", "fa-code-branch",
-        "fa-crown", "fa-diamond", "fa-fire", "fa-flag-checkered", "fa-flask",
-        "fa-gem", "fa-globe", "fa-headset", "fa-key", "fa-laptop"
-    ];
-
-    // ÍCONES DAS OPÇÕES NIVEL D (Avançado)
-    const levelDIcons = [
-        "fa-circle-radiation", "fa-arrow-up-right-dots", "fa-rocket", "fa-microchip", "fa-network-wired",
-        "fa-palette", "fa-plane-departure", "fa-plug", "fa-server", "fa-shield-halved",
-        "fa-signal", "fa-sitemap", "fa-star", "fa-stopwatch", "fa-terminal",
-        "fa-tower-broadcast", "fa-trophy", "fa-users-line", "fa-wifi", "fa-bolt-lightning"
-    ];
-
-    // PERGUNTAS
+    // NOVAS PERGUNTAS
     const baseQuestions = [
-        { text: "Como novos clientes encontram seu negócio hoje?", options: ["Só por indicação de amigos", "Apareço nas redes sem estratégia", "Invisto em anúncios com fluxo instável", "Tenho funil previsível que gera leads"], scores: [0,2,4,5] },
-        { text: "Sua oferta é clara para quem não te conhece?", options: ["Difícil explicar", "Descrição genérica", "Oferta clara mas falta desejo", "USP única que converte"], scores: [0,2,4,5] },
-        { text: "O que acontece quando alguém demonstra interesse?", options: ["Respondo conforme a demanda", "Tenho script básico", "Sigo processo mas perco contatos", "CRM estruturado com acompanhamento"], scores: [0,2,4,5] },
-        { text: "Como você gerencia dados de clientes?", options: ["Guardo tudo na cabeça", "Planilha simples", "Uso CRM para histórico", "Analiso métricas para decisões"], scores: [0,2,4,5] },
-        { text: "Como você se posiciona frente à concorrência?", options: ["Nem olho a concorrência", "Copia o que os outros fazem", "Me diferencio em alguns pontos", "Sou referência no meu nicho"], scores: [0,2,4,5] },
-        { text: "Como lida com objeções na venda?", options: ["Perco a venda quando hesitam", "Ofereço desconto", "Tenho respostas para objeções", "Quebro objeções antes de surgirem"], scores: [0,2,4,5] },
-        { text: "Estratégia para clientes que já compraram?", options: ["Venda termina no pagamento", "Mensagem ocasional", "Contato constante e suporte", "Programa de recorrência"], scores: [0,2,4,5] },
-        { text: "Como mede sucesso digital?", options: ["Curtidas e seguidores", "Mensagens no WhatsApp", "Orçamentos e vendas", "CAC e ROI analisados"], scores: [0,2,4,5] },
-        { text: "O que acontece se parar de postar 15 dias?", options: ["Negócio para totalmente", "Apenas indicações", "Ainda recebo alguns contatos", "Motor de vendas continua"], scores: [0,2,4,5] },
-        { text: "Maior dificuldade para escalar digitalmente?", options: ["Não sei por onde começar", "Falta tempo para tudo", "Tráfego não converte", "Preciso otimizar tecnologia"], scores: [0,2,4,5] },
-        { text: "Sua empresa tem site ou landing page?", options: ["Nenhum site", "Site institucional", "Site com formulários", "Landing page que converte"], scores: [0,2,4,5] },
-        { text: "Produz conteúdo de valor regularmente?", options: ["Não produzo", "Produzo esporadicamente", "Conteúdo semanal", "Estratégia alinhada ao funil"], scores: [0,2,4,5] },
-        { text: "Como captura leads no digital?", options: ["Não capturo", "Apenas WhatsApp", "Formulários básicos", "Iscas digitais qualificadas"], scores: [0,2,4,5] },
-        { text: "Usa automação de marketing?", options: ["Não utilizo", "Envio e-mails manual", "Ferramentas básicas", "Automação por jornada"], scores: [0,2,4,5] },
-        { text: "Sua equipe está preparada?", options: ["Sou sozinho(a)", "Ajuda sem padrão", "Time treinado", "Time com KPIs e metas"], scores: [0,2,4,5] },
-        { text: "Investe em tráfego pago?", options: ["Não invisto", "Testei mas não mantenho", "Invisto esporadicamente", "Invisto com ROI acompanhado"], scores: [0,2,4,5] },
-        { text: "Sua marca é reconhecida no mercado?", options: ["Só clientes conhecem", "Reconhecida na cidade", "Conhecida regionalmente", "Referência nacional"], scores: [0,2,4,5] },
-        { text: "Acompanha métricas de conversão?", options: ["Não acompanho", "Apenas faturamento", "Algumas métricas", "Dashboard completo"], scores: [0,2,4,5] },
-        { text: "Como qualifica os leads?", options: ["Atendo todos", "Perguntas na conversa", "Formulário de qualificação", "Lead scoring automatizado"], scores: [0,2,4,5] },
-        { text: "Usa ferramentas de análise como GA?", options: ["Não utilizo", "Instalado mas não analiso", "Analiso ocasionalmente", "Uso dados para otimizar"], scores: [0,2,4,5] }
+        { text: "Hoje, como a maioria dos seus clientes chega até você?", options: ["Apenas por indicação", "Redes sociais", "WhatsApp", "Já tenho clientes chegando de várias formas"], scores: [0,2,4,5] },
+        { text: "Quando alguém pergunta o que você faz, você consegue explicar com facilidade?", options: ["Não", "Às vezes", "Quase sempre", "Sim"], scores: [0,2,4,5] },
+        { text: "Qual frase mais combina com sua realidade hoje?", options: ["Não sei o que postar", "Tenho ideias, mas não consigo organizar", "Posto com frequência, mas sem resultado", "Tenho uma estratégia clara"], scores: [0,2,4,5] },
+        { text: "Como você se sente em relação às suas redes sociais?", options: ["Perdido(a)", "Desmotivado(a)", "Inseguro(a)", "Confiante"], scores: [0,2,4,5] },
+        { text: "Você acredita que as pessoas entendem o valor do seu trabalho?", options: ["Não", "Poucas pessoas", "Em parte", "Sim"], scores: [0,2,4,5] },
+        { text: "Qual é sua maior dificuldade hoje?", options: ["Conseguir clientes", "Aparecer nas redes sociais", "Organizar minha comunicação", "Transformar seguidores em clientes"], scores: [0,2,4,5] },
+        { text: "Quando foi a última vez que você planejou seu conteúdo?", options: ["Nunca planejei", "Há meses", "Neste mês", "Tenho planejamento frequente"], scores: [0,2,4,5] },
+        { text: "Você sente que seu negócio está crescendo como deveria?", options: ["Não", "Muito abaixo do que gostaria", "Está evoluindo aos poucos", "Sim"], scores: [0,2,4,5] },
+        { text: "Com que frequência você aparece nas redes sociais?", options: ["Quase nunca", "Apenas quando lembro", "Algumas vezes por semana", "Todos os dias"], scores: [0,2,4,5] },
+        { text: "Você costuma vender todos os meses?", options: ["Não", "Tenho meses bons e ruins", "Consigo vender com certa frequência", "Tenho vendas constantes"], scores: [0,2,4,5] },
+        { text: "Como você cria seus conteúdos?", options: ["Improvisando", "Copiando ideias de outros perfis", "Seguindo algumas estratégias", "Tenho uma linha clara de comunicação"], scores: [0,2,4,5] },
+        { text: "Qual dessas situações mais te incomoda?", options: ["Ninguém interage com meus conteúdos", "Poucas pessoas conhecem meu trabalho", "Não consigo transformar visualizações em clientes", "Não sei exatamente o que estou fazendo errado"], scores: [0,2,4,5] },
+        { text: "Você sente que sua marca é lembrada pelas pessoas?", options: ["Não", "Muito pouco", "Algumas vezes", "Sim"], scores: [0,2,4,5] },
+        { text: "Hoje você tem um plano para crescer nas redes sociais?", options: ["Não tenho nenhum", "Tenho algumas ideias", "Tenho um plano básico", "Tenho uma estratégia definida"], scores: [0,2,4,5] },
+        { text: "Quanto tempo você perde pensando no que postar?", options: ["Muito tempo", "Algumas horas por semana", "Pouco tempo", "Já tenho isso organizado"], scores: [0,2,4,5] },
+        { text: "Se você parar de postar por uma semana, o que acontece?", options: ["Meu perfil praticamente para", "Quase ninguém lembra do meu negócio", "Ainda recebo alguns contatos", "Meu negócio continua gerando oportunidades"], scores: [0,2,4,5] },
+        { text: "Você sente que trabalha muito e cresce pouco?", options: ["Sim, totalmente", "Muitas vezes", "Às vezes", "Não"], scores: [0,2,4,5] },
+        { text: "Qual é seu principal objetivo hoje?", options: ["Conseguir mais clientes", "Ser mais conhecido(a)", "Organizar minha comunicação", "Vender mais"], scores: [0,2,4,5] },
+        { text: "Se alguém analisasse seu perfil agora, qual seria sua opinião?", options: ["Está confuso", "Poderia melhorar muito", "Está razoável", "Está bem organizado"], scores: [0,2,4,5] },
+        { text: "Se você tivesse um plano claro para comunicar melhor seu negócio, acredita que conseguiria crescer mais rápido?", options: ["Sim", "Provavelmente", "Talvez", "Não sei"], scores: [5,4,2,0] }
     ];
 
     let shuffledQuestions = [];
@@ -641,7 +598,10 @@
         const optionsWithScores = question.options.map((opt, optIdx) => ({
             text: opt,
             score: question.scores[optIdx],
-            icon: optIdx === 0 ? levelAIcons[idx] : optIdx === 1 ? levelBIcons[idx] : optIdx === 2 ? levelCIcons[idx] : levelDIcons[idx]
+            icon: optIdx === 0 ? levelAIcons[idx % levelAIcons.length] : 
+                  optIdx === 1 ? levelBIcons[idx % levelBIcons.length] : 
+                  optIdx === 2 ? levelCIcons[idx % levelCIcons.length] : 
+                  levelDIcons[idx % levelDIcons.length]
         }));
         const shuffled = shuffleArray(optionsWithScores);
         return {
@@ -733,22 +693,22 @@
                 <div class="orange-banner">
                     <i class="fa-solid fa-chart-line"></i>
                     <h3>Quase lá!</h3>
-                    <p>Você completou todas as perguntas. Preencha seus dados para receber sua análise.</p>
+                    <p>Você completou todas as perguntas. Preencha seus dados para receber sua análise personalizada.</p>
                 </div>
                 <div class="form-group">
-                    <label><i class="fa-regular fa-user"></i> Nome completo</label>
-                    <input type="text" id="userName" placeholder="Seu nome" autocomplete="name">
+                    <label><i class="fa-regular fa-user"></i> Seu nome completo</label>
+                    <input type="text" id="userName" placeholder="Ex: Ana Silva" autocomplete="name">
                 </div>
                 <div class="form-group">
-                    <label><i class="fa-solid fa-phone"></i> Telefone com DDD</label>
+                    <label><i class="fa-solid fa-phone"></i> Seu telefone com DDD</label>
                     <input type="tel" id="userPhone" placeholder="(11) 99999-9999" autocomplete="tel">
                 </div>
                 <div class="form-group">
-                    <label><i class="fa-regular fa-envelope"></i> E-mail</label>
-                    <input type="email" id="userEmail" placeholder="seu@email.com" autocomplete="email">
+                    <label><i class="fa-regular fa-envelope"></i> Seu e-mail</label>
+                    <input type="email" id="userEmail" placeholder="contato@seudominio.com" autocomplete="email">
                 </div>
                 <button class="submit-contact-btn" id="submitContactBtn">
-                    <i class="fa-solid fa-paper-plane"></i> Gerar análise
+                    <i class="fa-solid fa-paper-plane"></i> Gerar minha análise
                 </button>
             </div>
         `;
@@ -771,7 +731,7 @@
     function showLoadingAndRedirect() {
         loadingOverlay.classList.add('active');
         
-        const messages = ['Carregando perfil...', 'Analisando respostas...', 'Calculando maturidade...', 'Gerando recomendações...', 'Preparando relatório...'];
+        const messages = ['Carregando seu perfil...', 'Analisando suas respostas...', 'Cruzando dados...', 'Gerando recomendações...', 'Preparando relatório...'];
         const loadingMessage = document.getElementById('loadingMessage');
         const progressBar = document.getElementById('loadingProgressBar');
         
@@ -781,7 +741,6 @@
         let currentStep = 0;
         
         function updateStep(stepIndex) {
-            // Atualizar ícones da jornada
             steps.forEach((step, idx) => {
                 const element = document.getElementById(step);
                 if (idx <= stepIndex) {
@@ -791,7 +750,6 @@
                 }
             });
             
-            // Atualizar setas
             setas.forEach((seta, idx) => {
                 const setaElement = document.getElementById(seta);
                 if (idx < stepIndex) {
@@ -813,7 +771,6 @@
         
         const interval = setInterval(() => {
             currentStep++;
-            
             if (currentStep < steps.length) {
                 updateStep(currentStep);
             } else {
