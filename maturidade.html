@@ -18,24 +18,23 @@
         }
 
         :root {
-            --bg-page: #F8F9FC;
-            --white-card: #FFFFFF;
-            --rose-soft: #FCE4EC;
-            --rose-primary: #C44569;
-            --rose-dark: #A6344F;
-            --rose-highlight: #E57399;
+            --bg-page: #F5F7FA;
+            --bg-card: #FFFFFF;
+            --orange-primary: #F59E0B;
+            --orange-dark: #D97706;
+            --orange-light: #FBBF24;
+            --orange-soft: #FEF3C7;
             --text-dark: #1A1A2E;
             --text-muted: #6C757D;
-            --text-light: #8E6B76;
             --border-light: #E9ECEF;
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(145deg, #FDF8F5 0%, #FDF0F3 100%);
+            background: var(--bg-page);
             min-height: 100vh;
             color: var(--text-dark);
             font-weight: 400;
@@ -73,7 +72,7 @@
         .logo-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #C44569 0%, #A6344F 100%);
+            background: linear-gradient(135deg, var(--orange-primary) 0%, var(--orange-dark) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -87,7 +86,7 @@
 
         .logo-text h1 {
             font-size: 1.2rem;
-            color: var(--rose-primary);
+            color: var(--orange-dark);
         }
 
         .logo-text p {
@@ -96,34 +95,44 @@
         }
 
         .back-link {
-            color: var(--rose-primary);
+            color: var(--orange-dark);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.25s;
         }
 
         .back-link:hover {
-            color: var(--rose-dark);
+            color: var(--orange-primary);
         }
 
         .quiz-section {
-            background: var(--white-card);
-            border-radius: 48px;
+            background: var(--bg-card);
+            border-radius: 32px;
             padding: 48px 40px;
             box-shadow: var(--shadow-lg);
             border: 1px solid var(--border-light);
         }
 
+        .question-icon {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .question-icon i {
+            font-size: 2.5rem;
+            color: var(--orange-primary);
+        }
+
         .progress-bar {
-            background: var(--rose-soft);
+            background: var(--border-light);
             border-radius: 20px;
             height: 8px;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             overflow: hidden;
         }
 
         .progress-fill {
-            background: var(--rose-primary);
+            background: linear-gradient(90deg, var(--orange-primary) 0%, var(--orange-light) 100%);
             height: 100%;
             width: 0%;
             transition: width 0.3s ease;
@@ -140,7 +149,7 @@
         .options-list {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
             margin-bottom: 40px;
         }
 
@@ -150,21 +159,35 @@
             border-radius: 60px;
             padding: 16px 24px;
             cursor: pointer;
-            transition: all 0.2s;
-            font-size: 1rem;
+            transition: all 0.25s;
+            font-size: 0.95rem;
             color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .option-item i {
+            width: 28px;
+            font-size: 1.2rem;
+            color: var(--orange-primary);
+            transition: all 0.2s;
         }
 
         .option-item:hover {
-            background: var(--rose-soft);
-            border-color: var(--rose-primary);
+            background: var(--orange-soft);
+            border-color: var(--orange-primary);
             transform: translateX(5px);
         }
 
         .option-item.selected {
-            background: var(--rose-primary);
-            border-color: var(--rose-primary);
+            background: linear-gradient(135deg, var(--orange-primary), var(--orange-dark));
+            border-color: var(--orange-dark);
             color: white;
+        }
+
+        .option-item.selected i {
+            color: white !important;
         }
 
         .fade-out {
@@ -189,25 +212,35 @@
             text-align: right;
             font-size: 0.85rem;
             color: var(--text-muted);
-            margin-bottom: 16px;
+            margin-bottom: 8px;
         }
 
-        /* Formulário de contato */
         .contact-form-container {
             animation: fadeIn 0.5s ease;
         }
 
-        .contact-form-container h3 {
-            font-size: 1.8rem;
-            color: var(--rose-primary);
-            margin-bottom: 16px;
+        .orange-banner {
+            background: linear-gradient(135deg, var(--orange-primary), var(--orange-dark));
+            padding: 28px;
+            border-radius: 24px;
             text-align: center;
+            margin-bottom: 32px;
+            color: white;
         }
 
-        .contact-form-container p {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 32px;
+        .orange-banner h3 {
+            color: white;
+            margin-top: 12px;
+        }
+
+        .orange-banner p {
+            color: rgba(255,255,255,0.9);
+            margin-top: 8px;
+        }
+
+        .orange-banner i {
+            font-size: 2.5rem;
+            color: white;
         }
 
         .form-group {
@@ -219,6 +252,11 @@
             margin-bottom: 8px;
             font-weight: 500;
             color: var(--text-dark);
+        }
+
+        .form-group label i {
+            color: var(--orange-primary);
+            margin-right: 8px;
         }
 
         .form-group input {
@@ -234,12 +272,12 @@
 
         .form-group input:focus {
             outline: none;
-            border-color: var(--rose-primary);
-            box-shadow: 0 0 0 3px rgba(196,69,105,0.1);
+            border-color: var(--orange-primary);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
         }
 
         .submit-contact-btn {
-            background: var(--rose-primary);
+            background: linear-gradient(135deg, var(--orange-primary), var(--orange-dark));
             color: white;
             border: none;
             padding: 16px 32px;
@@ -252,18 +290,19 @@
         }
 
         .submit-contact-btn:hover {
-            background: var(--rose-dark);
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
         }
 
-        /* TELA DE CARREGAMENTO */
+        /* NOVA ANIMAÇÃO - FLUXO DE EVOLUÇÃO (JORNADA) */
         .loading-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #C44569 0%, #A6344F 100%);
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -280,86 +319,116 @@
 
         .loading-content {
             text-align: center;
-            color: white;
-            padding: 32px;
+            background: white;
+            padding: 48px 40px;
+            border-radius: 32px;
+            max-width: 550px;
+            box-shadow: var(--shadow-lg);
         }
 
-        .loading-spinner {
-            width: 80px;
-            height: 80px;
-            border: 4px solid rgba(255,255,255,0.2);
-            border-top: 4px solid white;
-            border-right: 4px solid white;
-            border-radius: 50%;
-            margin: 0 auto 32px;
-            animation: spin 0.8s linear infinite;
+        .jornada-container {
+            margin-bottom: 40px;
+            padding: 20px;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .loading-title {
-            font-size: 1.8rem;
+        .jornada-titulo {
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 16px;
-            font-family: 'Playfair Display', serif;
+            color: var(--orange-primary);
+            margin-bottom: 32px;
+            font-family: 'Inter', sans-serif;
         }
 
-        .loading-message {
-            font-size: 1rem;
-            opacity: 0.9;
-            margin-bottom: 24px;
-        }
-
-        .loading-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 32px;
-            text-align: left;
-            max-width: 300px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .loading-step {
+        .jornada-linha {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 0.85rem;
-            opacity: 0.5;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .jornada-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+
+        .jornada-icone {
+            width: 60px;
+            height: 60px;
+            background: #F3F4F6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-light);
+        }
+
+        .jornada-icone i {
+            font-size: 24px;
+            color: #D1D5DB;
+            transition: all 0.3s ease;
+        }
+
+        .jornada-item.completed .jornada-icone {
+            background: linear-gradient(135deg, var(--orange-primary), var(--orange-dark));
+            border-color: var(--orange-primary);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .jornada-item.completed .jornada-icone i {
+            color: white;
+        }
+
+        .jornada-ativo {
+            font-size: 0.7rem;
+            color: var(--orange-primary);
+            font-weight: 500;
+            margin-top: 4px;
+            opacity: 0;
             transition: opacity 0.3s;
         }
 
-        .loading-step.active {
+        .jornada-item.completed .jornada-ativo {
             opacity: 1;
         }
 
-        .loading-step i {
-            width: 20px;
+        .jornada-seta {
+            font-size: 20px;
+            color: var(--orange-primary);
+            margin: 0 4px;
+            opacity: 0.5;
         }
 
-        .loading-step.completed i {
-            color: #4CAF50;
+        .jornada-seta.active {
+            opacity: 1;
+            color: var(--orange-primary);
+        }
+
+        .loading-message {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 24px 0 20px;
         }
 
         .loading-progress {
             width: 100%;
-            height: 4px;
-            background: rgba(255,255,255,0.2);
+            height: 6px;
+            background: var(--border-light);
             border-radius: 4px;
-            margin-top: 32px;
             overflow: hidden;
+            margin-top: 20px;
         }
 
         .loading-progress-bar {
             height: 100%;
-            background: white;
+            background: linear-gradient(90deg, var(--orange-primary), var(--orange-light));
             width: 0%;
             border-radius: 4px;
-            transition: width 0.1s linear;
+            transition: width 0.2s linear;
         }
 
         .footer {
@@ -369,7 +438,22 @@
             border-top: 1px solid var(--border-light);
             font-size: 0.7rem;
             color: var(--text-muted);
-            font-style: italic;
+        }
+
+        @media (max-width: 640px) {
+            .jornada-icone {
+                width: 45px;
+                height: 45px;
+            }
+            .jornada-icone i {
+                font-size: 18px;
+            }
+            .jornada-seta {
+                font-size: 14px;
+            }
+            .jornada-ativo {
+                font-size: 0.6rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -382,41 +466,65 @@
             .question-text {
                 font-size: 1.2rem;
             }
+            .option-item {
+                padding: 12px 18px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- TELA DE CARREGAMENTO -->
+<!-- NOVA ANIMAÇÃO - FLUXO DE EVOLUÇÃO -->
 <div id="loadingOverlay" class="loading-overlay">
     <div class="loading-content">
-        <div class="loading-spinner"></div>
-        <div class="loading-title">Analisando seu negócio</div>
-        <div class="loading-message" id="loadingMessage">Processando suas respostas...</div>
-        
-        <div class="loading-steps">
-            <div class="loading-step" id="step1">
-                <i class="fas fa-circle-notch fa-spin"></i>
-                <span>Analisando perfil digital</span>
+        <div class="jornada-container">
+            <div class="jornada-titulo">
+                <i class="fa-solid fa-chart-line"></i> Evolução Digital
             </div>
-            <div class="loading-step" id="step2">
-                <i class="far fa-circle"></i>
-                <span>Calculando maturidade por dimensão</span>
-            </div>
-            <div class="loading-step" id="step3">
-                <i class="far fa-circle"></i>
-                <span>Identificando gargalos críticos</span>
-            </div>
-            <div class="loading-step" id="step4">
-                <i class="far fa-circle"></i>
-                <span>Gerando recomendações personalizadas</span>
-            </div>
-            <div class="loading-step" id="step5">
-                <i class="far fa-circle"></i>
-                <span>Preparando relatório executivo</span>
+            <div class="jornada-linha" id="jornadaLinha">
+                <!-- Usuário -->
+                <div class="jornada-item" id="jornadaStep1">
+                    <div class="jornada-icone">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span class="jornada-ativo">Perfil</span>
+                </div>
+                <i class="fa-solid fa-arrow-right jornada-seta" id="seta1"></i>
+                <!-- Gráfico -->
+                <div class="jornada-item" id="jornadaStep2">
+                    <div class="jornada-icone">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <span class="jornada-ativo">Análise</span>
+                </div>
+                <i class="fa-solid fa-arrow-right jornada-seta" id="seta2"></i>
+                <!-- Busca -->
+                <div class="jornada-item" id="jornadaStep3">
+                    <div class="jornada-icone">
+                        <i class="fa-solid fa-search"></i>
+                    </div>
+                    <span class="jornada-ativo">Diagnóstico</span>
+                </div>
+                <i class="fa-solid fa-arrow-right jornada-seta" id="seta3"></i>
+                <!-- Lâmpada -->
+                <div class="jornada-item" id="jornadaStep4">
+                    <div class="jornada-icone">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <span class="jornada-ativo">Recomendações</span>
+                </div>
+                <i class="fa-solid fa-arrow-right jornada-seta" id="seta4"></i>
+                <!-- PDF -->
+                <div class="jornada-item" id="jornadaStep5">
+                    <div class="jornada-icone">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                    <span class="jornada-ativo">Relatório</span>
+                </div>
             </div>
         </div>
-        
+        <div class="loading-message" id="loadingMessage">Carregando seu perfil...</div>
         <div class="loading-progress">
             <div class="loading-progress-bar" id="loadingProgressBar"></div>
         </div>
@@ -426,23 +534,17 @@
 <div class="container">
     <div class="header">
         <div class="logo-area">
-            <div class="logo-icon">
-                <i class="fas fa-chart-line"></i>
-            </div>
+            <div class="logo-icon"><i class="fa-solid fa-chart-line"></i></div>
             <div class="logo-text">
                 <h1>Diagnóstico Digital</h1>
                 <p>Índice de Maturidade Digital - IMD</p>
             </div>
         </div>
-        <a href="index.html" class="back-link">
-            <i class="fas fa-arrow-left"></i> Voltar para home
-        </a>
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
     </div>
 
     <div class="quiz-section">
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
         <div id="quizContainer"></div>
     </div>
 </div>
@@ -452,30 +554,71 @@
 </footer>
 
 <script>
-    // 20 Perguntas seguindo o modelo de consultoria
-    const questions = [
-        { text: "Qual é a principal fonte de novos clientes da sua empresa hoje?", options: ["Dependo totalmente de indicações boca a boca e contatos pessoais", "Recebo contatos por redes sociais, mas de forma instável e sem estratégia", "Utilizo anúncios pagos ou busca orgânica, mas o fluxo oscila muito", "Possuo um fluxo previsível de leads através de um funil de aquisição constante"], dimension: "aquisição", scores: [0,2,4,5] },
-        { text: "Como você descreveria a sua oferta de produto ou serviço para um desconhecido?", options: ["Tenho dificuldade em explicar; as pessoas entendem na hora que converso", "Tenho uma descrição no Instagram, mas parece igual à dos meus concorrentes", "Tenho uma oferta clara, mas não sei se ela gera desejo imediato no cliente", "Minha oferta tem um diferencial único (USP) validado que converte sem esforço de venda"], dimension: "oferta", scores: [0,2,4,5] },
-        { text: "O que acontece quando alguém demonstra interesse pelo seu serviço?", options: ["Respondo conforme a demanda, sem um processo definido", "Tenho um script básico ou modelo de mensagem que envio via WhatsApp", "Sigo um processo de vendas, mas perco muitos contatos no meio do caminho", "Possuo um processo comercial estruturado, com acompanhamento de leads e CRM"], dimension: "vendas", scores: [0,2,4,5] },
-        { text: "Como você utiliza os dados dos seus clientes e interessados?", options: ["Não registro nada; guardo tudo na cabeça ou papéis", "Mantenho uma lista de contatos no WhatsApp ou em uma planilha simples", "Utilizo um sistema de CRM para gerir o relacionamento e histórico", "Analiso métricas de conversão para tomar decisões estratégicas de investimento"], dimension: "dados", scores: [0,2,4,5] },
-        { text: "Como você se posiciona em relação à concorrência no ambiente digital?", options: ["Nem olho a concorrência, foco apenas no meu serviço", "Tento copiar o que os concorrentes fazem para não ficar para trás", "Identifiquei pontos fortes e fracos, e tento me diferenciar em pontos específicos", "Possuo autoridade reconhecida no meu nicho; sou referência para o mercado"], dimension: "posicionamento", scores: [0,2,4,5] },
-        { text: "Como você lida com a hesitação do cliente durante a venda?", options: ["Quando o cliente diz 'está caro' ou 'vou pensar', eu perco a venda", "Tento dar descontos para tentar fechar o negócio", "Tenho uma lista de objeções comuns e sei como contorná-las", "Minha comunicação pré-venda já quebra objeções antes mesmo de o cliente manifestar dúvida"], dimension: "vendas", scores: [0,2,4,5] },
-        { text: "Qual a sua estratégia para os clientes que já compraram de você?", options: ["A venda termina no pagamento; não tenho mais contato", "Mando uma mensagem ocasional ou apenas quando preciso vender algo novo", "Mantenho contato constante para suporte e indicação", "Tenho um programa de retenção, pós-venda estruturado e recorrência"], dimension: "relacionamento", scores: [0,2,4,5] },
-        { text: "Como você mede o sucesso da sua presença digital hoje?", options: ["Pelo número de seguidores ou curtidas no Instagram", "Pela quantidade de mensagens que chegam no WhatsApp", "Pela quantidade de orçamentos enviados e vendas fechadas", "Pelo Custo de Aquisição de Cliente (CAC) e pelo Retorno sobre Investimento (ROI)"], dimension: "métricas", scores: [0,2,4,5] },
-        { text: "O que ocorre se você ficar 15 dias sem postar ou investir em nada?", options: ["O negócio para totalmente; não entra um único lead", "Recebo apenas as indicações de sempre", "Ainda recebo alguns contatos, pois tenho um posicionamento estruturado", "O motor de vendas continua rodando graças aos ativos (conteúdo/anúncios) que deixei rodando"], dimension: "automação", scores: [0,2,4,5] },
-        { text: "Qual é a sua maior dificuldade em escalar o negócio digitalmente?", options: ["Não sei por onde começar; tudo parece complexo demais", "Falta tempo para produzir conteúdo e atender clientes ao mesmo tempo", "Tenho tráfego, mas as pessoas não convertem em vendas", "Tenho o processo, mas preciso otimizar a tecnologia e a equipe para crescer"], dimension: "escalabilidade", scores: [0,2,4,5] },
-        { text: "Sua empresa possui um site ou landing page com foco em conversão?", options: ["Não possuo nenhum site", "Tenho um site institucional básico", "Tenho um site com formulários de contato", "Tenho uma landing page otimizada que converte visitantes em leads"], dimension: "presença", scores: [0,2,4,5] },
-        { text: "Você produz conteúdo de valor para seu público-alvo regularmente?", options: ["Não produzo conteúdo", "Produzo esporadicamente", "Produzo conteúdo semanalmente", "Tenho uma estratégia de conteúdo alinhada com o funil de vendas"], dimension: "conteúdo", scores: [0,2,4,5] },
-        { text: "Como você captura leads em seu site ou redes sociais?", options: ["Não capturo leads", "Apenas o WhatsApp está disponível", "Tenho formulários de contato básicos", "Tenho iscas digitais (e-books, checklist) para capturar contatos qualificados"], dimension: "captura", scores: [0,2,4,5] },
-        { text: "Você utiliza automação de marketing ou e-mail marketing?", options: ["Não utilizo", "Envio e-mails manualmente", "Utilizo ferramentas básicas de disparo", "Tenho automações configuradas para diferentes jornadas do cliente"], dimension: "automação", scores: [0,2,4,5] },
-        { text: "Sua equipe está preparada para atender a demanda digital?", options: ["Sou sozinho(a) e atendo tudo", "Tenho ajuda mas sem padronização", "Tenho um time treinado para vendas digitais", "Tenho equipe dedicada com KPIs e metas definidas"], dimension: "time", scores: [0,2,4,5] },
-        { text: "Você investe em tráfego pago (Google Ads, Facebook/Instagram Ads)?", options: ["Não invisto", "Já testei mas não mantenho", "Invisto esporadicamente", "Invisto com consistência e acompanho ROI"], dimension: "aquisição", scores: [0,2,4,5] },
-        { text: "Seu negócio possui uma marca pessoal ou empresarial forte?", options: ["Ninguém me conhece além dos clientes atuais", "Algumas pessoas reconhecem minha marca", "Sou conhecido(a) no meu bairro/cidade", "Sou referência nacional no meu nicho"], dimension: "posicionamento", scores: [0,2,4,5] },
-        { text: "Você acompanha métricas como taxa de conversão e ticket médio?", options: ["Não acompanho nenhuma métrica", "Acompanho apenas faturamento", "Acompanho algumas métricas de conversão", "Tenho um dashboard com todas as métricas do funil"], dimension: "métricas", scores: [0,2,4,5] },
-        { text: "Como você qualifica os leads antes de passar para o time comercial?", options: ["Não qualifico; atendo todos que entram em contato", "Faço perguntas básicas na conversa", "Tenho um formulário de qualificação", "Tenho um sistema de pontuação (lead scoring) automatizado"], dimension: "vendas", scores: [0,2,4,5] },
-        { text: "Sua empresa utiliza ferramentas de análise como Google Analytics?", options: ["Não utilizo", "Tenho instalado mas não analiso", "Analiso ocasionalmente", "Uso dados para otimizar campanhas e estratégias"], dimension: "dados", scores: [0,2,4,5] }
+    // ÍCONES DAS PERGUNTAS (20 ícones únicos)
+    const questionIcons = [
+        "fa-user-plus", "fa-gift", "fa-comments", "fa-database", "fa-chess-knight",
+        "fa-handshake", "fa-heart", "fa-chart-simple", "fa-calendar-xmark", "fa-mountain-sun",
+        "fa-display", "fa-pen-nib", "fa-fish-fins", "fa-robot", "fa-users-gear",
+        "fa-money-bill-trend-up", "fa-medal", "fa-gauge-high", "fa-filter", "fa-magnifying-glass"
     ];
 
+    // ÍCONES DAS OPÇÕES NIVEL A (Básico)
+    const levelAIcons = [
+        "fa-circle", "fa-arrow-down", "fa-bolt", "fa-cloud", "fa-code",
+        "fa-cube", "fa-leaf", "fa-seedling", "fa-snowflake", "fa-sun",
+        "fa-umbrella", "fa-water", "fa-wind", "fa-anchor", "fa-battery-empty",
+        "fa-book", "fa-briefcase", "fa-bug", "fa-camera", "fa-car"
+    ];
+
+    // ÍCONES DAS OPÇÕES NIVEL B (Iniciante)
+    const levelBIcons = [
+        "fa-circle-half-stroke", "fa-arrow-right", "fa-battery-half", "fa-bicycle", "fa-binoculars",
+        "fa-brain", "fa-building", "fa-calendar", "fa-circle-nodes", "fa-compass",
+        "fa-computer", "fa-copy", "fa-dice", "fa-earth-americas", "fa-envelope-open",
+        "fa-eye", "fa-folder", "fa-gamepad", "fa-gear", "fa-database"
+    ];
+
+    // ÍCONES DAS OPÇÕES NIVEL C (Intermediário)
+    const levelCIcons = [
+        "fa-circle-dot", "fa-arrow-up", "fa-battery-full", "fa-bullseye", "fa-chart-column",
+        "fa-check", "fa-circle-check", "fa-clock", "fa-cloud-arrow-up", "fa-code-branch",
+        "fa-crown", "fa-diamond", "fa-fire", "fa-flag-checkered", "fa-flask",
+        "fa-gem", "fa-globe", "fa-headset", "fa-key", "fa-laptop"
+    ];
+
+    // ÍCONES DAS OPÇÕES NIVEL D (Avançado)
+    const levelDIcons = [
+        "fa-circle-radiation", "fa-arrow-up-right-dots", "fa-rocket", "fa-microchip", "fa-network-wired",
+        "fa-palette", "fa-plane-departure", "fa-plug", "fa-server", "fa-shield-halved",
+        "fa-signal", "fa-sitemap", "fa-star", "fa-stopwatch", "fa-terminal",
+        "fa-tower-broadcast", "fa-trophy", "fa-users-line", "fa-wifi", "fa-bolt-lightning"
+    ];
+
+    // PERGUNTAS
+    const baseQuestions = [
+        { text: "Como novos clientes encontram seu negócio hoje?", options: ["Só por indicação de amigos", "Apareço nas redes sem estratégia", "Invisto em anúncios com fluxo instável", "Tenho funil previsível que gera leads"], scores: [0,2,4,5] },
+        { text: "Sua oferta é clara para quem não te conhece?", options: ["Difícil explicar", "Descrição genérica", "Oferta clara mas falta desejo", "USP única que converte"], scores: [0,2,4,5] },
+        { text: "O que acontece quando alguém demonstra interesse?", options: ["Respondo conforme a demanda", "Tenho script básico", "Sigo processo mas perco contatos", "CRM estruturado com acompanhamento"], scores: [0,2,4,5] },
+        { text: "Como você gerencia dados de clientes?", options: ["Guardo tudo na cabeça", "Planilha simples", "Uso CRM para histórico", "Analiso métricas para decisões"], scores: [0,2,4,5] },
+        { text: "Como você se posiciona frente à concorrência?", options: ["Nem olho a concorrência", "Copia o que os outros fazem", "Me diferencio em alguns pontos", "Sou referência no meu nicho"], scores: [0,2,4,5] },
+        { text: "Como lida com objeções na venda?", options: ["Perco a venda quando hesitam", "Ofereço desconto", "Tenho respostas para objeções", "Quebro objeções antes de surgirem"], scores: [0,2,4,5] },
+        { text: "Estratégia para clientes que já compraram?", options: ["Venda termina no pagamento", "Mensagem ocasional", "Contato constante e suporte", "Programa de recorrência"], scores: [0,2,4,5] },
+        { text: "Como mede sucesso digital?", options: ["Curtidas e seguidores", "Mensagens no WhatsApp", "Orçamentos e vendas", "CAC e ROI analisados"], scores: [0,2,4,5] },
+        { text: "O que acontece se parar de postar 15 dias?", options: ["Negócio para totalmente", "Apenas indicações", "Ainda recebo alguns contatos", "Motor de vendas continua"], scores: [0,2,4,5] },
+        { text: "Maior dificuldade para escalar digitalmente?", options: ["Não sei por onde começar", "Falta tempo para tudo", "Tráfego não converte", "Preciso otimizar tecnologia"], scores: [0,2,4,5] },
+        { text: "Sua empresa tem site ou landing page?", options: ["Nenhum site", "Site institucional", "Site com formulários", "Landing page que converte"], scores: [0,2,4,5] },
+        { text: "Produz conteúdo de valor regularmente?", options: ["Não produzo", "Produzo esporadicamente", "Conteúdo semanal", "Estratégia alinhada ao funil"], scores: [0,2,4,5] },
+        { text: "Como captura leads no digital?", options: ["Não capturo", "Apenas WhatsApp", "Formulários básicos", "Iscas digitais qualificadas"], scores: [0,2,4,5] },
+        { text: "Usa automação de marketing?", options: ["Não utilizo", "Envio e-mails manual", "Ferramentas básicas", "Automação por jornada"], scores: [0,2,4,5] },
+        { text: "Sua equipe está preparada?", options: ["Sou sozinho(a)", "Ajuda sem padrão", "Time treinado", "Time com KPIs e metas"], scores: [0,2,4,5] },
+        { text: "Investe em tráfego pago?", options: ["Não invisto", "Testei mas não mantenho", "Invisto esporadicamente", "Invisto com ROI acompanhado"], scores: [0,2,4,5] },
+        { text: "Sua marca é reconhecida no mercado?", options: ["Só clientes conhecem", "Reconhecida na cidade", "Conhecida regionalmente", "Referência nacional"], scores: [0,2,4,5] },
+        { text: "Acompanha métricas de conversão?", options: ["Não acompanho", "Apenas faturamento", "Algumas métricas", "Dashboard completo"], scores: [0,2,4,5] },
+        { text: "Como qualifica os leads?", options: ["Atendo todos", "Perguntas na conversa", "Formulário de qualificação", "Lead scoring automatizado"], scores: [0,2,4,5] },
+        { text: "Usa ferramentas de análise como GA?", options: ["Não utilizo", "Instalado mas não analiso", "Analiso ocasionalmente", "Uso dados para otimizar"], scores: [0,2,4,5] }
+    ];
+
+    let shuffledQuestions = [];
     let currentQuestion = 0;
     let answers = [];
     let isTransitioning = false;
@@ -485,26 +628,55 @@
     const progressFill = document.getElementById('progressFill');
     const loadingOverlay = document.getElementById('loadingOverlay');
 
+    function shuffleArray(array) {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
+    }
+
+    function shuffleOptions(question, idx) {
+        const optionsWithScores = question.options.map((opt, optIdx) => ({
+            text: opt,
+            score: question.scores[optIdx],
+            icon: optIdx === 0 ? levelAIcons[idx] : optIdx === 1 ? levelBIcons[idx] : optIdx === 2 ? levelCIcons[idx] : levelDIcons[idx]
+        }));
+        const shuffled = shuffleArray(optionsWithScores);
+        return {
+            options: shuffled.map(item => ({ text: item.text, icon: item.icon })),
+            scores: shuffled.map(item => item.score)
+        };
+    }
+
+    function initShuffledQuestions() {
+        const shuffledBase = shuffleArray(baseQuestions);
+        shuffledQuestions = shuffledBase.map((q, idx) => {
+            const shuffledOpts = shuffleOptions(q, idx);
+            return {
+                text: q.text,
+                options: shuffledOpts.options,
+                scores: shuffledOpts.scores,
+                icon: questionIcons[idx % questionIcons.length]
+            };
+        });
+    }
+
     function updateProgress() {
-        const progress = (currentQuestion / questions.length) * 100;
+        const progress = (currentQuestion / shuffledQuestions.length) * 100;
         progressFill.style.width = progress + '%';
     }
 
     function goToNextQuestion() {
         if (isTransitioning) return;
-        
-        if (currentQuestion + 1 >= questions.length) {
+        if (currentQuestion + 1 >= shuffledQuestions.length) {
             showContactForm();
             return;
         }
-        
         isTransitioning = true;
-        
         const currentDiv = quizContainer.querySelector('.quiz-question-container');
-        if (currentDiv) {
-            currentDiv.classList.add('fade-out');
-        }
-        
+        if (currentDiv) currentDiv.classList.add('fade-out');
         setTimeout(() => {
             currentQuestion++;
             renderQuestion();
@@ -513,18 +685,17 @@
     }
 
     function renderQuestion() {
-        if (currentQuestion >= questions.length) {
+        if (currentQuestion >= shuffledQuestions.length) {
             showContactForm();
             return;
         }
-
         updateProgress();
-
-        const q = questions[currentQuestion];
+        const q = shuffledQuestions[currentQuestion];
         
         let html = `
             <div class="quiz-question-container fade-in">
-                <div class="question-counter">Pergunta ${currentQuestion + 1} de ${questions.length}</div>
+                <div class="question-icon"><i class="fa-solid ${q.icon}"></i></div>
+                <div class="question-counter">${currentQuestion + 1} de ${shuffledQuestions.length}</div>
                 <div class="question-text">${currentQuestion + 1}. ${q.text}</div>
                 <div class="options-list">
         `;
@@ -533,33 +704,23 @@
             const isSelected = answers[currentQuestion] === idx;
             html += `
                 <div class="option-item ${isSelected ? 'selected' : ''}" data-opt-index="${idx}">
-                    ${opt}
+                    <i class="fa-solid ${opt.icon}"></i>
+                    <span>${opt.text}</span>
                 </div>
             `;
         });
         
-        html += `
-                </div>
-            </div>
-        `;
-        
+        html += `</div></div>`;
         quizContainer.innerHTML = html;
         
         document.querySelectorAll('.option-item').forEach(opt => {
-            opt.addEventListener('click', (e) => {
+            opt.addEventListener('click', () => {
                 if (isTransitioning) return;
-                
                 const idx = parseInt(opt.dataset.optIndex);
                 answers[currentQuestion] = idx;
-                
-                document.querySelectorAll('.option-item').forEach(item => {
-                    item.classList.remove('selected');
-                });
+                document.querySelectorAll('.option-item').forEach(item => item.classList.remove('selected'));
                 opt.classList.add('selected');
-                
-                setTimeout(() => {
-                    goToNextQuestion();
-                }, 150);
+                setTimeout(() => goToNextQuestion(), 150);
             });
         });
     }
@@ -567,99 +728,76 @@
     function showContactForm() {
         updateProgress();
         progressFill.style.width = '100%';
-        
         const formHtml = `
             <div class="contact-form-container fade-in">
-                <div style="background: linear-gradient(135deg, var(--rose-primary), var(--rose-dark)); padding: 24px; border-radius: 32px; text-align: center; margin-bottom: 32px; color: white;">
-                    <i class="fas fa-clipboard-list" style="font-size: 2rem; margin-bottom: 16px;"></i>
-                    <h3 style="color: white;">Quase lá! 🎯</h3>
-                    <p style="color: rgba(255,255,255,0.9);">Você completou todas as perguntas! Preencha seus dados para receber sua análise personalizada.</p>
+                <div class="orange-banner">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Quase lá!</h3>
+                    <p>Você completou todas as perguntas. Preencha seus dados para receber sua análise.</p>
                 </div>
                 <div class="form-group">
-                    <label><i class="fas fa-user"></i> Seu nome completo</label>
-                    <input type="text" id="userName" placeholder="Ex: Ana Silva" autocomplete="name">
+                    <label><i class="fa-regular fa-user"></i> Nome completo</label>
+                    <input type="text" id="userName" placeholder="Seu nome" autocomplete="name">
                 </div>
                 <div class="form-group">
-                    <label><i class="fas fa-phone"></i> Seu telefone (com DDD)</label>
+                    <label><i class="fa-solid fa-phone"></i> Telefone com DDD</label>
                     <input type="tel" id="userPhone" placeholder="(11) 99999-9999" autocomplete="tel">
                 </div>
                 <div class="form-group">
-                    <label><i class="fas fa-envelope"></i> Seu e-mail</label>
-                    <input type="email" id="userEmail" placeholder="contato@seudominio.com" autocomplete="email">
+                    <label><i class="fa-regular fa-envelope"></i> E-mail</label>
+                    <input type="email" id="userEmail" placeholder="seu@email.com" autocomplete="email">
                 </div>
                 <button class="submit-contact-btn" id="submitContactBtn">
-                    <i class="fas fa-chart-line"></i> Gerar minha análise completa
+                    <i class="fa-solid fa-paper-plane"></i> Gerar análise
                 </button>
             </div>
         `;
-        
         quizContainer.innerHTML = formHtml;
-        
         document.getElementById('submitContactBtn').addEventListener('click', () => {
             const name = document.getElementById('userName').value.trim();
             const phone = document.getElementById('userPhone').value.trim();
             const email = document.getElementById('userEmail').value.trim();
-            
-            if (!name || !phone || !email) {
-                alert('Por favor, preencha todos os campos para receber sua análise.');
-                return;
-            }
-            
-            if (!phone.match(/^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/)) {
-                alert('Por favor, informe um telefone válido com DDD.');
-                return;
-            }
-            
-            if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-                alert('Por favor, informe um e-mail válido.');
-                return;
-            }
-            
+            if (!name || !phone || !email) { alert('Preencha todos os campos.'); return; }
+            if (!phone.match(/^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/)) { alert('Telefone inválido. Use (11) 99999-9999'); return; }
+            if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) { alert('E-mail inválido.'); return; }
             userData = { name, phone, email };
-            
-            // Salvar dados no localStorage
             localStorage.setItem('diagnostico_user_data', JSON.stringify(userData));
             localStorage.setItem('diagnostico_answers', JSON.stringify(answers));
-            localStorage.setItem('diagnostico_questions', JSON.stringify(questions));
-            
-            // Mostrar tela de carregamento e iniciar animação
+            localStorage.setItem('diagnostico_questions', JSON.stringify(shuffledQuestions));
             showLoadingAndRedirect();
         });
     }
 
     function showLoadingAndRedirect() {
-        // Ativar overlay de carregamento
         loadingOverlay.classList.add('active');
         
-        const steps = ['step1', 'step2', 'step3', 'step4', 'step5'];
-        const messages = [
-            'Analisando seu perfil digital...',
-            'Calculando maturidade por dimensão...',
-            'Identificando gargalos críticos...',
-            'Gerando recomendações personalizadas...',
-            'Preparando relatório executivo...'
-        ];
-        
+        const messages = ['Carregando perfil...', 'Analisando respostas...', 'Calculando maturidade...', 'Gerando recomendações...', 'Preparando relatório...'];
         const loadingMessage = document.getElementById('loadingMessage');
         const progressBar = document.getElementById('loadingProgressBar');
+        
+        const steps = ['jornadaStep1', 'jornadaStep2', 'jornadaStep3', 'jornadaStep4', 'jornadaStep5'];
+        const setas = ['seta1', 'seta2', 'seta3', 'seta4'];
         
         let currentStep = 0;
         
         function updateStep(stepIndex) {
-            // Reset all steps
+            // Atualizar ícones da jornada
             steps.forEach((step, idx) => {
                 const element = document.getElementById(step);
-                if (idx < stepIndex) {
-                    element.innerHTML = '<i class="fas fa-check-circle"></i>';
+                if (idx <= stepIndex) {
                     element.classList.add('completed');
-                    element.classList.remove('active');
-                } else if (idx === stepIndex) {
-                    element.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>';
-                    element.classList.add('active');
-                    element.classList.remove('completed');
                 } else {
-                    element.innerHTML = '<i class="far fa-circle"></i>';
-                    element.classList.remove('active', 'completed');
+                    element.classList.remove('completed');
+                }
+            });
+            
+            // Atualizar setas
+            setas.forEach((seta, idx) => {
+                const setaElement = document.getElementById(seta);
+                if (idx < stepIndex) {
+                    setaElement.classList.add('active');
+                } else {
+                    setaElement.classList.remove('active');
                 }
             });
             
@@ -667,14 +805,12 @@
                 loadingMessage.textContent = messages[stepIndex];
             }
             
-            // Update progress bar
             const progress = ((stepIndex + 1) / steps.length) * 100;
             progressBar.style.width = progress + '%';
         }
         
         updateStep(0);
         
-        // Simular processamento em etapas
         const interval = setInterval(() => {
             currentStep++;
             
@@ -682,15 +818,14 @@
                 updateStep(currentStep);
             } else {
                 clearInterval(interval);
-                // Pequeno delay antes de redirecionar para dar tempo de ver o 100%
                 setTimeout(() => {
                     window.location.href = 'obrigado.html';
                 }, 800);
             }
-        }, 800);
+        }, 700);
     }
 
-    // Iniciar o quiz
+    initShuffledQuestions();
     renderQuestion();
 </script>
 </body>
